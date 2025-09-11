@@ -2,8 +2,8 @@ import cv2
 import os
 
 # Вхідне відео
-video_path = "1.mp4"
-output_dir = "frames"
+video_path = "4.mp4"
+output_dir = "frames2"
 
 # Створюємо папку для кадрів
 os.makedirs(output_dir, exist_ok=True)
