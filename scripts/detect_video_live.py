@@ -4,7 +4,8 @@ import torch
 from ultralytics import YOLO
 import time
 
-MODEL_PATH = "runs/detect/train4/weights/best.pt"
+MODEL_NAME = "yolov8s"
+MODEL_PATH = f"runs/detect/{MODEL_NAME}/weights/best.pt"
 
 def main():
     if len(sys.argv) < 2:
@@ -38,7 +39,7 @@ def main():
             source=frame,
             conf=0.6,       # можна знизити для швидкості
             iou=0.7,
-            imgsz=640,      # менше = швидше
+            imgsz=1024,      # менше = швидше
             device=device,
             half=use_half,
             verbose=False

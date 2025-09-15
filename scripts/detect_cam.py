@@ -2,7 +2,9 @@ import cv2
 import torch
 from ultralytics import YOLO
 
-MODEL_PATH = "runs/detect/train2/weights/best.pt"
+# WARNING has been not tested
+
+MODEL_PATH = "runs/detect/train4/weights/best.pt"
 
 def main():
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
