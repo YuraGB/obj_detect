@@ -4,7 +4,7 @@ import torch
 from ultralytics import YOLO
 import time
 
-MODEL_NAME = "yolov8s"
+MODEL_NAME = "yolov8s5" # Also name of the folder trained model ./runs/detect/<MODEL_NAME>
 MODEL_PATH = f"runs/detect/{MODEL_NAME}/weights/best.pt"
 
 def main():
@@ -37,11 +37,12 @@ def main():
         # Інференс на меншому розмірі
         results = model.predict(
             source=frame,
-            conf=0.6,       # можна знизити для швидкості
-            iou=0.7,
-            imgsz=1024,      # менше = швидше
+            conf=0.3,       # можна знизити для швидкості
+            iou=0.45,
+            imgsz=768,      # менше = швидше
             device=device,
             half=use_half,
+            max_det=1,
             verbose=False
         )
 
