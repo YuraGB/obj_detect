@@ -23,7 +23,7 @@
 ├── runs/ # результати роботи YOLO
 │ └── detect/
 │ ├── predict*/ # результати прогнозів (збережені зображення/відео)
-│ └── train*/ # результати навчання (weights, графіки)
+│ └── <MODEL_NAME> or train*/ # результати навчання (weights, графіки)
 │
 ├── scripts/ # корисні Python-скрипти
 │ ├── 70_30.py # розділення датасету на train/val
@@ -77,6 +77,8 @@ pip install ultralytics opencv-python torch
 1. Поклади дані у data/images/train, data/images/val, data/labels/...
 
 2. Запусти тренування:
+
+   - MODEL_NAME -> yolov8n | yolov8s | yolov8m | yolo11n | yolo11s | etc...
 ```bash
 python scripts/train_yolo.py
 ```
@@ -138,9 +140,9 @@ ___
 
 🚀 Плани розвитку
 
-1. Зібрати більший датасет дронів
+1. Зібрати більший датасет  зображень дронів
 
-2. Тест моделей (yolov8m, yolov8l) для підвищення точності
+2. Тест моделей (yolov8m, ..., yolov8l, etc.) для підвищення точності
 
 3. Оптимізація для AMD GPU (ONNX + DirectML)
 
