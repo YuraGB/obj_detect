@@ -25,8 +25,8 @@ names: ['drone']
     results = model.train(
         data="data.yaml",   # шлях до yaml
         epochs=50,          # кількість епох
-        imgsz=768,          # розмір зображення
-        batch=16,           # розмір батчу
+        imgsz=1024,          # розмір зображення
+        batch=8,           # розмір батчу
         workers=2,          # кількість воркерів для даталоадера
         name=MODEL_NAME     # ім'я для збереженої моделі
     )
