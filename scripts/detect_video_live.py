@@ -4,7 +4,7 @@ import torch
 from ultralytics import YOLO
 import time
 
-MODEL_NAME = "yolov8s"
+MODEL_NAME = "yolov8s6" # Also name of the folder trained model ./runs/detect/<MODEL_NAME>
 MODEL_PATH = f"runs/detect/{MODEL_NAME}/weights/best.pt"
 
 def main():
@@ -37,11 +37,17 @@ def main():
         # Інференс на меншому розмірі
         results = model.predict(
             source=frame,
-            conf=0.6,       # можна знизити для швидкості
-            iou=0.7,
-            imgsz=1024,      # менше = швидше
+            conf=0.3,       # коефіцієнт співпадіння
+            
+            #   iou - це метрика, яка використовується для оцінки якості детекції об’єкта в задачах комп’ютерного зору IoU= Площа об′єднання / Площа перетину​
+            #   де:
+            #    -  перетин (intersection) — це площа, де два бокси (реальний і передбачений) перекриваються;
+            #    -  об’єднання (union) — це сумарна площа обох боксів без подвійного врахування перекритої зони.
+            iou=0.35,      
+            imgsz=768,      # менше = швидше
             device=device,
             half=use_half,
+            max_det=1,      # max_det=1 → навіть якщо модель бачить багато об’єктів, вона покаже лише один найбільш впевнений.
             verbose=False
         )
 
